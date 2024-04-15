@@ -85,8 +85,9 @@ When reading, EOF is signaled through the value `-1`.
 Newlines are ignored.
 
 ## Number
+One of:
 ```
-0-9
+0 1 2 3 4 5 6 7 8 9
 ```
 No arguments.
 Return the respectively selected number.
@@ -227,7 +228,7 @@ No arguments.
 Close and remove the selected input.
 Return the new length of `inputs`.
 
-## Append
+## Concat
 ```
 ,
 ```
@@ -255,7 +256,10 @@ the return value
 
 Return the last return value.
 
-## While<
+## While
+```
+<
+```
 Three arguments.
 Execute as long as two values are not equal.
 1. Function to compare
