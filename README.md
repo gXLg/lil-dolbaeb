@@ -174,7 +174,7 @@ No arguments.
 Close and remove the selected output.
 Return the new length of `outputs`.
 
-## °
+## =
 No arguments.
 Close and remove the selected input.
 Return the new length of `inputs`.
