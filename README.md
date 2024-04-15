@@ -84,23 +84,38 @@ When reading, EOF is signaled through the value `-1`.
 
 Newlines are ignored.
 
-## 0-9
+## Number
+```
+0-9
+```
 No arguments.
 Return the respectively selected number.
 
-## +
+## Add
+```
++
+```
 Two arguments.
 Add two numbers.
 
-## -
+## Sub
+```
+-
+```
 Two arguments.
 Subtract 2nd from the 1st number.
 
-## *
+## Mul
+```
+*
+```
 Two arguments.
 Multiply two numbers.
 
-## /
+## Div
+```
+/
+```
 Two arguments.
 Divide 1st number by the 2nd.
 The 2nd value is only executed
@@ -108,15 +123,24 @@ if 1st value is not equal to zero.
 Dividing by zero produces zero.
 The result is a whole number.
 
-## L
+## Last
+```
+L
+```
 No arguments.
 Return `last`.
 
-## A
+## Args
+```
+A
+```
 No arguments.
 Return `args`.
 
-## :
+## Def
+```
+:
+```
 Three arguments.
 (Re-)define a function.
 1. The function name
@@ -133,58 +157,88 @@ Side effects:
 
 Return the number of arguments.
 
-## !
+## Write
+```
+!
+```
 One argument.
 Write a character with the numerical value
 equal to the provided number to the selected output.
 
-## ?
+## Read
+```
+?
+```
 No arguments.
 Read one character from selected input,
 convert it to a numerical value and return it.
 
-## ¡
+## Write Index
+```
+¡
+```
 One argument.
 Set `outputi` to the provided value modulo
 the length of `outputs`.
 Return the value.
 
-## ¿
+## Read Index
+```
+¿
+```
 One argument.
 Set `inputi` to the provided value modulo
 the length of `inputs`.
 Return the value.
 
-## ^
+## Open Write
+```
+^
+```
 No arguments.
 Create a new write stream to the file,
 whose location is saved as an array of character
 values in `last`.
 Return the new length of `outputs`.
 
-## ~
+## Open Read
+```
+~
+```
 No arguments.
 Create a new read stream from the file,
 whose location is saved as an array of character
 values in `last`.
 Return the new length of `inputs`.
 
-## °
+## Close Write
+```
+°
+```
 No arguments.
 Close and remove the selected output.
 Return the new length of `outputs`.
 
-## =
+## Close Read
+```
+=
+```
 No arguments.
 Close and remove the selected input.
 Return the new length of `inputs`.
 
-## ,
+## Append
+```
+,
+```
 One argument.
 Concatenate `last` with the provided list
 and return it.
 
-## >
+## Iter
+```
+>
+```
 Two arguments.
 Iterate over a list.
 1. The list to iterate over
@@ -201,7 +255,7 @@ the return value
 
 Return the last return value.
 
-## <
+## While<
 Three arguments.
 Execute as long as two values are not equal.
 1. Function to compare
@@ -215,7 +269,10 @@ if they are equal, exit the loop
 3. Execute 3rd argument
 4. Set `last` to the return value and go to step 2
 
-## _
+## Get
+```
+_
+```
 Two arguments.
 Get an element from a list by the index.
 Works like python's indexing where negative index
