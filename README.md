@@ -32,7 +32,7 @@ but can access them. Some functions however
 have "side effects" which will modify the values.
 
 Any value in Lil Dolbaeb is saved internally as
-a semi-list, which can be in one of three states:
+a semi-list, which can be in one of four states:
 * Empty list
 * A single number
 * A list of numbers of any length
