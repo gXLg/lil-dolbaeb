@@ -1,10 +1,14 @@
 import sys
 
-with open(sys.argv[1], "r") as f:
+with open(sys.argv[1], "r", encoding="utf8") as f:
   code = f.read().replace("\n", "")
 
 def call(s, a, c = 0):
-  b = functions[a[0]][1](s, *a[1])
+  d = a[0]
+  if d in functions:
+    b = functions[d][1](s, *a[1])
+  else:
+    b = ord(d)
   return v(b) if c else b
 
 def v(c):
@@ -102,13 +106,13 @@ functions = {
   ][1]],
   "^": [0, lambda s: [
     b := "".join(map(chr, s.last)),
-    c := open(b, "w"),
+    c := open(b, "w", encoding="utf8"),
     s.outputs.append(c),
     len(s.outputs) - 1
   ][3]],
   "~": [0, lambda s: [
     b := "".join(map(chr, s.last)),
-    c := open(b, "r"),
+    c := open(b, "r", encoding="utf8"),
     s.inputs.append(c),
     len(s.inputs) - 1
   ][3]],

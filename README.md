@@ -17,7 +17,7 @@ by the the rules of Polish Notation.
 There are some predefined functions and
 new functions may be created.
 
-The parser consumes one functions at a time,
+The parser consumes one function at a time,
 executes it and then repeats the process until
 no more functions can be consumed.
 This allows functions to have dynamic amount
@@ -63,6 +63,12 @@ and `args` is a one level recursive list of the program arguments
 with first element being the file name of the program.
 For example calling `python execute.py test.lil first "second argument"`
 will result in `args := [[116, 101, 115, 116, 46, 108, 105, 108], [102, 105, 114, 115, 116], [115, 101, 99, 111, 110, 100, 32, 97, 114, 103, 117, 109, 101, 110, 116]]`.
+
+Newlines are completely ignored,
+since they are removed by the program
+before even parsing the code.
+Any character which is not a defined function yet,
+will return its' numerical value.
 
 # I/O
 Lil Dolbaeb has 4 internal values
