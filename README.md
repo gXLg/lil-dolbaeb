@@ -65,10 +65,10 @@ For example calling `python execute.py test.lil first "second argument"`
 will result in `args := [[116, 101, 115, 116, 46, 108, 105, 108], [102, 105, 114, 115, 116], [115, 101, 99, 111, 110, 100, 32, 97, 114, 103, 117, 109, 101, 110, 116]]`.
 
 Newlines are completely ignored,
-since they are removed by the program
+since they are removed from the program
 before even parsing the code.
 Any character which is not a defined function yet,
-will return its' numerical value.
+will return its' numerical value appended to `last`.
 
 # I/O
 Lil Dolbaeb has 4 internal values
@@ -207,6 +207,7 @@ Create a new write stream to the file,
 whose location is saved as an array of character
 values in `last`.
 Return the new length of `outputs`.
+Opens the file in `utf8` format.
 
 ## Open Read
 ```
@@ -217,6 +218,29 @@ Create a new read stream from the file,
 whose location is saved as an array of character
 values in `last`.
 Return the new length of `inputs`.
+Opens the file in `utf8` format.
+
+## Open Write
+```
+`
+```
+No arguments.
+Create a new write stream to the file,
+whose location is saved as an array of character
+values in `last`.
+Return the new length of `outputs`.
+Opens the file in `latin1` format.
+
+## Open Read
+```
+|
+```
+No arguments.
+Create a new read stream from the file,
+whose location is saved as an array of character
+values in `last`.
+Return the new length of `inputs`.
+Opens the file in `latin1` format.
 
 ## Close Write
 ```
@@ -290,7 +314,7 @@ takes elements from the back of the list.
 1. List to get the element from
 2. Index as a number
 
-Return the element or -1 if the index is out of bounds.
+Return the element or an empty list if the index is out of bounds.
 
 # Execution
 This repo includes a python

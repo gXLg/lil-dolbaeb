@@ -8,7 +8,7 @@ def call(s, a, c = 0):
   if d in functions:
     b = functions[d][1](s, *a[1])
   else:
-    b = ord(d)
+    b = com(s.last, ord(d))
   return v(b) if c else b
 
 def v(c):
@@ -84,7 +84,7 @@ functions = {
   "_": [2, lambda s, a, b: [
     c := com([], call(s, a)),
     d := call(s, b, 1),
-    c[d] if d in range(-len(c), len(c)) else -1
+    c[d] if d in range(-len(c), len(c)) else []
   ][2]],
   "0": [0, lambda s: 0],
   "1": [0, lambda s: 1],
@@ -113,6 +113,18 @@ functions = {
   "~": [0, lambda s: [
     b := "".join(map(chr, s.last)),
     c := open(b, "r", encoding="utf8"),
+    s.inputs.append(c),
+    len(s.inputs) - 1
+  ][3]],
+  "`": [0, lambda s: [
+    b := "".join(map(chr, s.last)),
+    c := open(b, "w", encoding="latin1"),
+    s.outputs.append(c),
+    len(s.outputs) - 1
+  ][3]],
+  "|": [0, lambda s: [
+    b := "".join(map(chr, s.last)),
+    c := open(b, "r", encoding="latin1"),
     s.inputs.append(c),
     len(s.inputs) - 1
   ][3]],
